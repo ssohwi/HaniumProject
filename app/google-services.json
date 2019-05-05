@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "727393698838-dpdue928kdbf3gqo2mcc75f1vnbedbeo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.haniumproject",
+            "certificate_hash": "8808c0529616173530c07694436be35cd88334df"
+          }
+        },
+        {
           "client_id": "727393698838-u1v73i795v85luj9sthooml4ua5g88p7.apps.googleusercontent.com",
           "client_type": 3
         }
