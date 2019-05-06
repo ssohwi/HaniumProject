@@ -8,5 +8,5 @@
         android:topLeftRadius="5dp"
         android:topRightRadius="5dp"></corners>
     <stroke android:width="0.01dp"
-        android:color="#ffffff"></stroke>
+        android:color="#63b3e8"></stroke>
 </shape>
