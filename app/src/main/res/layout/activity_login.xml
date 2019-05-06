@@ -16,7 +16,7 @@
             android:background="@android:color/holo_blue_dark">
 
             <ImageButton
-                android:id="@+id/sign_menuicon"
+                android:id="@+id/login_menuicon"
                 android:layout_width="wrap_content"
                 android:layout_height="61dp"
                 android:background="@drawable/menuicon"
@@ -101,8 +101,9 @@
             android:textSize="20sp" />
 
         </LinearLayout>//완전 끝나는 곳 아래부터는 슬라이드 구현
-
+//슬라이드 메뉴 넣은 곳 아래부터(여ㅕ기ㅏ다가 추가해줘야함)
     <LinearLayout
+            android:id="@+id/sidebar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -114,8 +115,5 @@
                 android:layout_height="match_parent"
                 android:text="슬라이딩메뉴설정하기"
                 android:textColor="@android:color/black" />
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
     </LinearLayout>
 </android.support.v4.widget.DrawerLayout>

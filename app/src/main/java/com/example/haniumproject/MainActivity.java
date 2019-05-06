@@ -42,15 +42,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(getApplicationContext(),"사업자를 선택하셨습니다",Toast.LENGTH_LONG).show();
+                startActivity(new Intent(MainActivity.this,SignUp_BusinessActivity.class));
             }
         });
-        builder.setPositiveButton("일반고객", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("일반고객", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(getApplicationContext(),"일반 고객을 선택하셨습니다",Toast.LENGTH_LONG).show();
-                Intent intent=new Intent(getApplicationContext(),SignUp_User.class);
-
-                startActivity(intent);
+                startActivity(new Intent(MainActivity.this,SignUp_User.class));
 
             }
         });
