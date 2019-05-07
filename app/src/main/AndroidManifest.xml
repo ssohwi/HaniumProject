@@ -19,6 +19,9 @@
         <activity android:name=".LoginActivity"></activity>
         <activity android:name=".SignUp_User"></activity>
         <activity android:name=".SignUp_BusinessActivity"></activity>
+        <activity android:name=".MainPageActivity"></activity>
+        <activity android:name=".FindActivity"></activity>
+
     </application>
 
 </manifest>

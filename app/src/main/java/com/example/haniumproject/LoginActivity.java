@@ -1,27 +1,138 @@
 package com.example.haniumproject;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApiNotAvailableException;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private FirebaseRemoteConfig mFirebaseRemoteConfig;
+    EditText editTextEmail;
+    EditText editTextPassword;
+    Button buttonSignin;
+    ImageView imgbuttonSignin;
+    ImageView imgViewFindpw;
+    ImageView imgSign_business;
+    TextView textviewSingin;
+    TextView textviewMessage;
+    TextView textviewFindPassword;
+    ProgressDialog progressDialog;
+    //define firebase object
+    FirebaseAuth firebaseAuth;
+
 
     @Override
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_login);
 
+            //initializig firebase auth object
+            firebaseAuth = FirebaseAuth.getInstance();
 
+            //if(firebaseAuth.getCurrentUser() != null){
+                //이미 로그인 되었다면 이 액티비티를 종료함
+                //finish();
+                //그리고 profile 액티비티를 연다.
+                //startActivity(new Intent(getApplicationContext(), MainPageActivity.class)); //추가해 줄 ProfileActivity
+            //}
+            //initializing views
+            editTextEmail = (EditText) findViewById(R.id.editTextEmail);
+            editTextPassword = (EditText) findViewById(R.id.editTextPassword);
+            textviewSingin= (TextView) findViewById(R.id.textViewSignin);
+            textviewMessage = (TextView) findViewById(R.id.textviewMessage);
+            textviewFindPassword = (TextView) findViewById(R.id.textViewFindpassword);
+            buttonSignin = (Button) findViewById(R.id.buttonSignup);
+            imgbuttonSignin=(ImageView)findViewById(R.id.imgViewSignin);
+            imgViewFindpw=(ImageView) findViewById(R.id.imgSignUp_business);
+            imgSign_business=(ImageView) findViewById(R.id.imgSignUp_business);
+
+
+            progressDialog = new ProgressDialog(this);
+
+            //button click event
+            buttonSignin.setOnClickListener(this);
+            textviewSingin.setOnClickListener(this);
+            textviewFindPassword.setOnClickListener(this);
+            imgSign_business.setOnClickListener(this);
+            imgViewFindpw.setOnClickListener(this);
+            imgbuttonSignin.setOnClickListener(this);
+        }
+
+        //firebase userLogin method
+        private void userLogin() {
+            String email = editTextEmail.getText().toString().trim();
+            String password = editTextPassword.getText().toString().trim();
+
+            if (TextUtils.isEmpty(email)) {
+                Toast.makeText(this, "email을 입력해 주세요.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (TextUtils.isEmpty(password)) {
+                Toast.makeText(this, "password를 입력해 주세요.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            progressDialog.setMessage("로그인중입니다. 잠시 기다려 주세요...");
+            progressDialog.show();
+
+            //logging in the user
+            firebaseAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            progressDialog.dismiss();
+                            if (task.isSuccessful()) {
+                                finish();
+                                startActivity(new Intent(getApplicationContext(), MainPageActivity.class));
+                            } else {
+                                Toast.makeText(getApplicationContext(), "로그인 실패!", Toast.LENGTH_LONG).show();
+                                textviewMessage.setText("로그인 실패 유형\n - password가 맞지 않습니다.\n -서버에러");
+                            }
+                        }
+                    });
+        }
+                        @Override
+                        public void onClick(View view) {
+                            if (view == buttonSignin) {
+                                userLogin();
+                            }
+                            if (view == textviewSingin) {
+                                finish();
+                                startActivity(new Intent(this, SignUp_User.class));
+                            }
+                            if (view == textviewFindPassword) {
+                                finish();
+                                startActivity(new Intent(this, FindActivity.class));
+                            }
+                            if (view==imgbuttonSignin){
+                                finish();
+                                startActivity(new Intent(this,SignUp_User.class));
+                            }
+                            if (view==imgViewFindpw){
+                                finish();
+                                startActivity(new Intent(this,FindActivity.class));
+                            }if (view==imgSign_business){
+                                finish();
+                                startActivity(new Intent(this,SignUp_BusinessActivity.class));
+                            }
     }
 }
