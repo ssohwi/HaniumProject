@@ -9,7 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAfQ-0fxDTK6BtDa0Jg3X9FO-K0SBIHGeU" />
+
+
         <activity android:name=".MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,6 +28,7 @@
         <activity android:name=".SignUp_BusinessActivity"></activity>
         <activity android:name=".MainPageActivity"></activity>
         <activity android:name=".FindActivity"></activity>
+        <activity android:name=".CareCenterMapActivity"></activity>
 
     </application>
 

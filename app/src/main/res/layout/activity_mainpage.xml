@@ -3,38 +3,170 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:orientation="vertical">
+    android:background="@color/colorPrimary"
+    android:id="@+id/drawerLayout">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    //메인 레이아웃
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="match_parent"
-            android:layout_height="66dp"
-            app:srcCompat="@android:color/holo_blue_bright" />
-
-        <ImageButton
-            android:id="@+id/menu"
-            android:layout_width="78dp"
-            android:layout_height="61dp"
-            android:background="@drawable/menuicon"
-            app:srcCompat="@drawable/menubtn" />
-    </FrameLayout>
-    <LinearLayout
-        android:id="@+id/sidebar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_gravity="start"
-        android:background="@color/colorPrimaryDark"
-        android:weightSum="100">
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="슬라이딩메뉴설정하기"
-            android:textColor="@android:color/black" />
-    </LinearLayout>
+            android:orientation="vertical">
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="82dp">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@android:color/holo_blue_bright" />
+
+                <ImageButton
+                    android:id="@+id/btn_OpenDrawer"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:background="@android:drawable/menuitem_background"
+                    app:srcCompat="@drawable/menubtn" />
+            </FrameLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="582dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageButton
+                            android:id="@+id/MainPage_locationMap_imgbtn"
+                            android:layout_width="381dp"
+                            android:layout_height="196dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="15dp"
+                            android:background="@drawable/mainpagebox_background"
+                            android:paddingRight="170dp"
+                            app:srcCompat="@drawable/menu_exit" />
+
+                        <TextView
+                            android:id="@+id/MainPage_locationMap_txt"
+                            android:layout_width="193dp"
+                            android:layout_height="46dp"
+                            android:layout_marginLeft="210dp"
+                            android:layout_marginTop="100dp"
+                            android:text="지역별 센터 찾기"
+                            android:textColor="@android:color/black"
+                            android:textSize="24sp" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="217dp">
+
+                        <ImageButton
+                            android:id="@+id/MainPage_name_imgbtn"
+                            android:layout_width="381dp"
+                            android:layout_height="196dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="15dp"
+                            android:background="@drawable/mainpagebox_background"
+                            android:paddingRight="170dp"
+                            app:srcCompat="@drawable/menu_exit" />
+
+                        <TextView
+                            android:id="@+id/MainPage_name_txt"
+                            android:layout_width="193dp"
+                            android:layout_height="46dp"
+                            android:layout_marginLeft="210dp"
+                            android:layout_marginTop="100dp"
+                            android:text="요양 센터 찾기"
+                            android:textColor="@android:color/black"
+                            android:textSize="24sp" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="204dp">
+
+                        <ImageButton
+                            android:id="@+id/MainPage_Community_imgbtn"
+                            android:layout_width="381dp"
+                            android:layout_height="196dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="15dp"
+                            android:background="@drawable/mainpagebox_background"
+                            android:paddingRight="170dp"
+                            app:srcCompat="@drawable/menu_exit" />
+
+                        <TextView
+                            android:id="@+id/MainPage_Community_txt"
+                            android:layout_width="193dp"
+                            android:layout_height="46dp"
+                            android:layout_marginLeft="210dp"
+                            android:layout_marginTop="100dp"
+                            android:text="커뮤니티"
+                            android:textColor="@android:color/black"
+                            android:textSize="24sp" />
+                    </FrameLayout>
+
+                </LinearLayout>
+            </ScrollView>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="73dp">
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    app:srcCompat="@android:color/holo_blue_bright" />
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <!--드로어 화면이 될 Layout-->
+<RelativeLayout
+android:id="@+id/drawer"
+android:layout_width="400dp"
+android:layout_height="match_parent"
+android:gravity="center_horizontal"
+android:background="#ffffff"
+android:layout_gravity="start">
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="23dp"
+    android:text="드로어가 될 화면"
+    android:textColor="#f70"
+    android:textSize="24dp" />
+
+<Button
+    android:id="@+id/btn_CloseDrawer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true"
+    android:layout_marginBottom="10dp"
+    android:text="드로어 닫기" />
+
+
+
+</RelativeLayout>
 </android.support.v4.widget.DrawerLayout>
