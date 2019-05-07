@@ -10,6 +10,8 @@ public class MainPageActivity extends AppCompatActivity {
     public void onCreate(Bundle bundle){
         super.onCreate(bundle);
         setContentView(R.layout.activity_mainpage);
+
+
     }
 }
 
