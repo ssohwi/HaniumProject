@@ -49,7 +49,7 @@ public class MainPageActivity extends AppCompatActivity implements View.OnClickL
 
                 // 드로어 화면을 열고 닫을 버튼 객체 참조
                 ImageButton btnOpenDrawer = (ImageButton) findViewById(R.id.btn_OpenDrawer);
-                Button btnCloseDrawer = (Button) findViewById(R.id.btn_CloseDrawer);
+                ImageButton btnCloseDrawer = (ImageButton) findViewById(R.id.btn_CloseDrawer);
 
 
                 // 드로어 여는 버튼 리스너

@@ -4,12 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CareCenterMapActivity">
+    tools:context=".CareCenterMapActivity"
+    android:orientation="vertical">
+
+
+    <EditText
+        android:id="@+id/latitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberSigned"
+        />
+
+    <EditText
+        android:id="@+id/longitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberSigned"
+        />
+
 
     <fragment
         android:id="@+id/map"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:name="com.google.android.gms.maps.SupportMapFragment" />
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:name="com.google.android.gms.maps.MapFragment" />
+
+    <Button
+        android:id="@+id/location_search_btn"
+        android:layout_width="match_parent"
+        android:layout_height="67dp"
+        android:layout_weight="0.2"
+        android:text="장소검색" />
+
+
 
 </LinearLayout>
