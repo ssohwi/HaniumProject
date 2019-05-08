@@ -29,6 +29,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     EditText editTextEmail;
     EditText editTextPassword;
     Button buttonSignin;
+
     ImageView imgbuttonSignin;
     ImageView imgViewFindpw;
     ImageView imgSign_business;
@@ -48,19 +49,23 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             //initializig firebase auth object
             firebaseAuth = FirebaseAuth.getInstance();
 
-            //if(firebaseAuth.getCurrentUser() != null){
+
+            if(firebaseAuth.getCurrentUser() != null){
                 //이미 로그인 되었다면 이 액티비티를 종료함
-                //finish();
+                finish();
                 //그리고 profile 액티비티를 연다.
-                //startActivity(new Intent(getApplicationContext(), MainPageActivity.class)); //추가해 줄 ProfileActivity
-            //}
-            //initializing views
+                startActivity(new Intent(getApplicationContext(), MainPageActivity.class)); //추가해 줄 ProfileActivity
+            }
+
+
+                //initializing views
             editTextEmail = (EditText) findViewById(R.id.editTextEmail);
             editTextPassword = (EditText) findViewById(R.id.editTextPassword);
             textviewSingin= (TextView) findViewById(R.id.textViewSignin);
             textviewMessage = (TextView) findViewById(R.id.textviewMessage);
             textviewFindPassword = (TextView) findViewById(R.id.textViewFindpassword);
             buttonSignin = (Button) findViewById(R.id.buttonSignup);
+
             imgbuttonSignin=(ImageView)findViewById(R.id.imgViewSignin);
             imgViewFindpw=(ImageView) findViewById(R.id.imgSignUp_business);
             imgSign_business=(ImageView) findViewById(R.id.imgSignUp_business);
@@ -69,6 +74,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             progressDialog = new ProgressDialog(this);
 
             //button click event
+
             buttonSignin.setOnClickListener(this);
             textviewSingin.setOnClickListener(this);
             textviewFindPassword.setOnClickListener(this);
@@ -134,5 +140,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 finish();
                                 startActivity(new Intent(this,SignUp_BusinessActivity.class));
                             }
-    }
+
+                        }
 }
