@@ -10,10 +10,10 @@
             android:background="#FFFFFF"
             android:orientation="vertical">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="61dp"
-            android:background="@android:color/holo_blue_dark"/>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@color/main_color" />
 
             <TextView
                 android:id="@+id/LoginText"
@@ -66,7 +66,9 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="15dp"
                     android:layout_weight="1"
-                    android:text="아이디 저장"
+                    android:button="@android:drawable/checkbox_off_background"
+                    android:checked="true"
+                    android:text=" 아이디 저장"
                     android:textColor="@android:color/black" />
 
                 <CheckBox
@@ -78,6 +80,7 @@
                     android:layout_marginRight="70dp"
                     android:layout_marginBottom="15dp"
                     android:layout_weight="1"
+                    android:button="@android:drawable/checkbox_off_background"
                     android:text="  자동 로그인"
                     android:textColor="@android:color/black" />
             </LinearLayout>

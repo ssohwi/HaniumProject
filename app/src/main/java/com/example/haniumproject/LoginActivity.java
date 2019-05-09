@@ -67,8 +67,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             buttonSignin = (Button) findViewById(R.id.buttonSignup);
 
             imgbuttonSignin=(ImageView)findViewById(R.id.imgViewSignin);
-            imgViewFindpw=(ImageView) findViewById(R.id.imgSignUp_business);
+            imgViewFindpw=(ImageView) findViewById(R.id.imgViewFindpassword);
             imgSign_business=(ImageView) findViewById(R.id.imgSignUp_business);
+
+
 
 
             progressDialog = new ProgressDialog(this);
@@ -81,6 +83,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             imgSign_business.setOnClickListener(this);
             imgViewFindpw.setOnClickListener(this);
             imgbuttonSignin.setOnClickListener(this);
+
+
+
         }
 
         //firebase userLogin method
@@ -116,6 +121,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         }
                     });
         }
+
                         @Override
                         public void onClick(View view) {
                             if (view == buttonSignin) {
@@ -142,4 +148,5 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             }
 
                         }
-}
+
+        }
