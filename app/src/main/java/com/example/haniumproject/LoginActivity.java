@@ -69,7 +69,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             imgbuttonSignin=(ImageView)findViewById(R.id.imgViewSignin);
             imgViewFindpw=(ImageView) findViewById(R.id.imgViewFindpassword);
             imgSign_business=(ImageView) findViewById(R.id.imgSignUp_business);
-
+//위에 만짐
 
 
 
